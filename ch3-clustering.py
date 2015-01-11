@@ -9,6 +9,7 @@ print vectorizer.get_feature_names()
 import os
 import sys
 import scipy as sp
+import nltk
 
 # from utils import DATA_DIR
 
