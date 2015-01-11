@@ -15,8 +15,9 @@ for t,marker,c in zip(xrange(3) , ">ox" , "rgb"):
 		        c = c)
 
 
+plt.show()
 plength = features[:,2]
 
-is_set = (labels == 'setosa')
-print is_set
-max_setosa = plength[is_set.max()]
+is_setosa = (target == 0)
+print is_setosa
+max_setosa = plength[is_setosa.max()]
