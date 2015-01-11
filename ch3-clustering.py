@@ -1,8 +1,9 @@
 from sklearn.feature_extraction.text import CountVectorizer
-vectorizer = CountVectorizer(min_df=1)
+vectorizer = CountVectorizer(min_df=1 , stop_words='english')
 
 content = ["How to format my hard disk" , "Hard disk format problems"]
 X = vectorizer.fit_transform(content)
+print X
 print vectorizer.get_feature_names()
 
 import os
@@ -18,6 +19,7 @@ posts.pop(0)
 print posts
 
 X_train = vectorizer.fit_transform(posts)
+print X_train
 num_samples , num_features = X_train.shape
 
 print num_samples
@@ -30,8 +32,6 @@ def dist_raw(v1, v2):
     delta = v1 - v2
     return sp.linalg.norm(delta.toarray())
 
-
-print new_post_vec
 
 best_doc = None
 best_dist = sys.maxint
