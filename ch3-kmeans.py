@@ -8,3 +8,4 @@ groups = ['comp.graphics', 'comp.os.ms-windows.misc', 'comp.sys.ibm.pc.hardware'
 train_data = sklearn.datasets.load_mlcomp("20news-18828", "train" , mlcomp_root=MLCOMP_DIR, categories=groups)
 
 print(len(train_data.filenames))
+# got the beginning data 
