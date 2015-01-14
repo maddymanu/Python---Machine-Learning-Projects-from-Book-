@@ -31,3 +31,5 @@ km = KMeans(n_clusters=num_clusters, init='random', n_init=1,
    verbose=1)
 km.fit(vectorized)
 
+# kmeans works
+
