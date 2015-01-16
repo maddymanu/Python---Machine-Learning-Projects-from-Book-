@@ -6,6 +6,7 @@ data = sklearn.datasets.load_mlcomp("20news-18828", mlcomp_root=MLCOMP_DIR)
 groups = ['comp.graphics', 'comp.os.ms-windows.misc', 'comp.sys.ibm.pc.hardware', 'comp.sys.ma c.hardware', 'comp.windows.x', 'sci.space']
 train_data = sklearn.datasets.load_mlcomp("20news-18828", "train" , mlcomp_root=MLCOMP_DIR, categories=groups)
 
+
 print(len(train_data.filenames))
 # got the beginning data 
 
@@ -21,6 +22,7 @@ class StemmedTfidfVectorizer(TfidfVectorizer):
 
 vectorizer = StemmedTfidfVectorizer(min_df=10, max_df=0.5, stop_words='english', charset_error='ignore')
 vectorized = vectorizer.fit_transform(train_data.data)
+print vectorized
 num_samples, num_features = vectorized.shape
 print("#samples: %d, #features: %d" % (num_samples, num_features))
 
@@ -31,5 +33,7 @@ km = KMeans(n_clusters=num_clusters, init='random', n_init=1,
    verbose=1)
 km.fit(vectorized)
 
+new_post = "Disk drive problems. Hi, I have a problem with my hard disk. After 1 year it is working only sporadically now. I tried to format it, but now it doesn't boot any more. Any ideas? Thanks"
 # kmeans works
+
 
