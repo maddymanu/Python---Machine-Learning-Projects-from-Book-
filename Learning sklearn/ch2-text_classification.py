@@ -103,8 +103,10 @@ def train_and_evaluate(clf, X_train, X_test, y_train, y_test):
 
 
 
+
 train_and_evaluate(clf_7, X_train, X_test, y_train, y_test)
 
+#accuracy was quite good.
 
 
 
