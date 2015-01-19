@@ -1,5 +1,10 @@
 import csv
+import IPython
+import sklearn as sk
 import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import pyparsing
 
 with open('data/titanic.csv' , 'rb') as csvfile:
 	titanic_reader = csv.reader(csvfile , delimiter=',' , quotechar='"')
@@ -60,14 +65,25 @@ titanic_X = np.delete(titanic_X, [0], 1)
 feature_names = ['age', 'sex', 'first_class', 'second_class', 'third_class']
 # Convert to numerical values
 titanic_X = titanic_X.astype(float)
-titanic_y = titanic_y.astype(float)
+titanic_Y = titanic_Y.astype(float)
 
 
 
+from sklearn.cross_validation import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(titanic_X, titanic_Y, test_size=0.25, random_state=33)
+
+from sklearn import tree
+clf = tree.DecisionTreeClassifier(criterion='entropy', max_depth=3,min_samples_leaf=5)
+clf = clf.fit(X_train,y_train)
 
 
-
-
+# import StringIO
+# dot_data = StringIO.StringIO() 
+# tree.export_graphviz(clf, out_file=dot_data, feature_names=['age','sex','1st_class','2nd_class','3rd_class']) 
+# graph = pydot.graph_from_dot_data(dot_data.getvalue()) 
+# graph.write_png('titanic.png') 
+# from IPython.core.display import Image 
+# Image(filename='titanic.png')
 
 
 
