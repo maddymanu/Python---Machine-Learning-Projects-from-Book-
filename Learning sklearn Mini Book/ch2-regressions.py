@@ -37,3 +37,5 @@ def train_and_evaluate(clf, X_train, y_train):
 from sklearn import svm
 clf_svr= svm.SVR(kernel='linear')
 train_and_evaluate(clf_svr,X_train,y_train)
+
+#moving on to more advanced stuff.
