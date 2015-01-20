@@ -33,3 +33,7 @@ def train_and_evaluate(clf, X_train, y_train):
     cv = KFold(X_train.shape[0], 5, shuffle=True, random_state=33)
     scores = cross_val_score(clf, X_train, y_train, cv=cv)
     print "Average coefficient of determination using 5-fold crossvalidation:",np.mean(scores)
+
+from sklearn import svm
+clf_svr= svm.SVR(kernel='linear')
+train_and_evaluate(clf_svr,X_train,y_train)
