@@ -2,6 +2,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import requests
+import StringIO
+import zipfile
+import scipy.stats 
 
 salaries = pd.read_csv('data/Salaries.csv' , sep=',')
 # print salaries.head()
@@ -18,9 +22,9 @@ mergedDF = pd.merge(salaries , teams , how='inner' , on=['yearID' , 'teamID'])
 
 teamName = "OAK"
 years = np.arange(2000 , 2004)
-print years
+# print years
 
-print mergedDF['yearID']
+# print mergedDF['yearID']
 
 for yr in years:
 	df = mergedDF[mergedDF['yearID'] == yr]
@@ -37,4 +41,29 @@ for yr in years:
         xytext = (-20, 20), textcoords = 'offset points', ha = 'right', va = 'bottom',
         bbox = dict(boxstyle = 'round,pad=0.5', fc = 'yellow', alpha = 0.5),
         arrowprops = dict(arrowstyle = '->', facecolor = 'black' , connectionstyle = 'arc3,rad=0'))
-	plt.show()
+	# plt.show()
+
+
+url = "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"
+s = StringIO.StringIO(requests.get(url).content)
+countries = pd.read_csv(s , sep=',')
+print countries.head()
+
+
+income_link = 'https://spreadsheets.google.com/pub?key=phAwcNAVuyj1jiMAkmq1iMg&output=xls'
+source = StringIO.StringIO(requests.get(income_link).content)
+income = pd.read_excel(source , sheetname='Data')
+print income.head()
+
+
+
+
+
+
+
+
+
+
+
+
+
