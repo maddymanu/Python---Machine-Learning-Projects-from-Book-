@@ -57,7 +57,13 @@ import sklearn.metrics
 
 
 
+#load the iris data set
+iris = sklearn.datasets.load_iris()
 
+X = iris.data  
+Y = iris.target
+
+print X.shape, Y.shape
 
 
 
