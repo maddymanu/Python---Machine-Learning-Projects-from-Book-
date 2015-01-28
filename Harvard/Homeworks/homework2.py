@@ -15,4 +15,15 @@ sampleinfo = pd.read_csv(url_sampleinfo)
 # print exprs.columns
 # print sampleinfo.filename
 
-print sampleinfo[exprs.columns == sampleinfo.filename]
+# print sampleinfo[exprs.columns == sampleinfo.filename]
+
+a = list(exprs.columns)
+b = list(sampleinfo.filename)
+matchIndex = [b.index(x) for x in a]
+print matchIndex
+exprs = exprs[matchIndex]
+
+sampleinfo["date"] = pd.to_datetime(sampleinfo.date)
+sampleinfo["month"] = map(lambda x: x.month, sampleinfo.date)
+sampleinfo["year"] = map(lambda x: x.year, sampleinfo.date)
+
