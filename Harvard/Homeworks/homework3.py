@@ -78,6 +78,12 @@ print X_2d.shape
 
 sns.set_style('white')
 
+plt.scatter(X_2d[:,0], X_2d[:,1], c=y_train, s = 50, cmap=plt.cm.prism)
+plt.xlabel('PC1')
+plt.ylabel('PC2')
+plt.title('First two PCs using iris data')
+plt.show()
+
 
 
 
