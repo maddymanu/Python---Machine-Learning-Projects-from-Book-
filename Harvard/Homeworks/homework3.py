@@ -16,6 +16,7 @@ import sklearn.decomposition
 import sklearn.grid_search
 import sklearn.neighbors
 import sklearn.metrics
+import seaborn as sns 
 
 # teams = pd.read_csv('data/Teams.csv')
 
@@ -70,8 +71,12 @@ from sklearn.cross_validation import train_test_split
 x_train , x_test , y_train, y_test = train_test_split(X , Y , test_size=0.33 , random_state=42)
 
 svd = sklearn.decomposition.TruncatedSVD(n_components=2)
-X_train_centered = X_train - np.mean(X_train, axis=0)
-X_2d = svd.fit_transform(X_train_centered)
+x_train_centered = x_train - np.mean(x_train, axis=0)
+X_2d = svd.fit_transform(x_train_centered)
+
+print X_2d.shape
+
+sns.set_style('white')
 
 
 
