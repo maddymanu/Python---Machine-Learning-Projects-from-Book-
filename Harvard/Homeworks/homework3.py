@@ -84,6 +84,8 @@ plt.ylabel('PC2')
 plt.title('First two PCs using iris data')
 plt.show()
 
+#stopping this till tm
+
 
 
 
